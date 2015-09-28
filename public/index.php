@@ -1,6 +1,6 @@
 <?php
 require_once("../includes/database.php");
-require_ince("../includes/users.php")
+require_ince("../includes/users.php");
 
 
 $record = $User::find_by_id(1);
@@ -20,7 +20,7 @@ echo "<hr />";
   //echo "Name: " .$user['firstname'] . " " 
   //.$user['last_name'] ."<br /><br />";
 	
-}
+//}
 
 
 ?>
