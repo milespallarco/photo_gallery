@@ -1,26 +1,56 @@
+<?php require_once("../includes/initialize.php"); ?>
 <?php
-require_once("../includes/database.php");
-require_ince("../includes/users.php");
-
-
-$record = $User::find_by_id(1);
-$user = new User();
-$user->id = $record['id'];
-$user->username = $record['username'];
-$user->password = $record['password'];
-$user->first_name = $record['first_name'];
-$user->last_name = $record['last_name'];
-echo $user->full_name();
-
-echo "<hr />";
-
-//$user_set = User::find_all();
-//while($user = $database->fetch_array($user_set)){
-  //echo "User: " .$user['username'] ."<br />";
-  //echo "Name: " .$user['firstname'] . " " 
-  //.$user['last_name'] ."<br /><br />";
+	//1.current page num
+	$page = !empty($_GET['page']) ? (int)$_GET['page'] : 1;
 	
-//}
-
-
+	//2.records per page
+	$per_page = 3;
+	
+	//3.total record count
+	$total_count = Photograph::count_all();
+	
+	//$photos = Photograph::find_all();
+	$pagination = new Pagination($page, $per_page, $total_count);
+	
+	//find the records for this page
+	$sql = "SELECT * FROM photographs ";
+	$sql .= "LIMIT {$per_page} ";
+	$sql .= "OFFSET {$pagination->offset()}";
+	$photos = Photograph::find_by_sql($sql);
 ?>
+<?php include_layout_template('header1.php'); ?>
+<?php foreach($photos as $photo): ?>
+	<div style="float: left; margin-left: 20px;">
+		<a href="photo.php?id=<?php echo $photo->id; ?>">
+			<img src="<?php echo $photo->image_path(); ?>" width="200"/>
+		</a>
+		<p><?php echo $photo->caption; ?></p>
+	</div>
+<?php endforeach; ?>
+	<div id="pagination" style="clear: both;">
+		<?php
+			if($pagination->total_pages() > 1){
+				if($pagination->has_previous_page()){
+					echo " <a href=\"index.php?page=";
+					echo $pagination->previous_page();
+					echo "\">&laquo; Previous</a> ";
+				}
+				
+				for($i=1; $i <= $pagination->total_pages(); $i++){
+					if($i==$page){
+						echo " <span class=\"selected\">{$i}</span> ";
+					}else{
+						echo " <a href=\"index.php?page={$i}\">{$i}</a> ";
+					}
+				}
+				
+				if($pagination->has_next_page()){
+					echo " <a href=\"index.php?page=";
+					echo $pagination->next_page();
+					echo "\">Next &raquo;</a> ";
+				}
+			}
+		
+		?>
+	</div>
+<?php include_layout_template('footer.php'); ?>

@@ -19,10 +19,6 @@
 		$new_comment = Comment::make($photo->id, $author, $body);
 		if($new_comment && $new_comment->save()){
 			//comment saved
-
-           //send email
-
-
 			redirect_to("photo.php?id={$photo->id}");
 		}else{
 			$message = "There was an error that prevented the comment from being saved.";
@@ -33,8 +29,6 @@
 	}
 	
 	$comments = $photo->comments();
-
-   include('photo_template.php');
 ?>
 <?php include_layout_template('header1.php'); ?>
 	<a href="index.php">&laquo; Back</a><br/><br/>

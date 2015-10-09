@@ -1,6 +1,15 @@
-2015-09-26 10:12:06 | Logs Cleared: by User Id 1
-2015-09-26 10:44:47 | Login: clarenceanne logged in.
-2015-09-26 17:16:39 | Login: clarenceanne logged in.
-2015-09-27 02:33:00 | Login: clarenceanne logged in.
-2015-09-27 06:46:31 | Login: clarenceanne logged in.
-2015-09-27 14:14:47 | Login: clarenceanne logged in.
+2015-10-08 12:15:49 | Logs Cleared: by User Id 3
+2015-10-08 12:21:55 | Login: 123 logged in.
+2015-10-08 16:20:49 | Login: 123 logged in.
+2015-10-08 17:03:22 | Login: 123 logged in.
+2015-10-08 17:17:23 | Login: cab logged in.
+2015-10-08 17:18:17 | Login: cab logged in.
+2015-10-08 22:08:43 | Login: 123 logged in.
+2015-10-08 23:25:25 | Login: 123 logged in.
+2015-10-09 04:51:02 | Login: 123 logged in.
+2015-10-09 04:57:33 | Login: 123 logged in.
+2015-10-09 05:00:34 | Login: 123 logged in.
+2015-10-09 05:03:10 | Login: 123 logged in.
+2015-10-09 07:48:42 | Login: 123 logged in.
+2015-10-09 08:04:37 | Login: pre logged in.
+2015-10-09 08:32:25 | Login: 123 logged in.

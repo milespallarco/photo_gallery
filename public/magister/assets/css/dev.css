@@ -1,0 +1,9 @@
+
+.profile-ava img{
+	height:300px;
+	width:300px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border: 5px solid #688a7e;
+    display: inline-block;
+}

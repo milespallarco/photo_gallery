@@ -31,31 +31,7 @@
 			$sql .= " ORDER BY created ASC";
 			return self::find_by_sql($sql);
 		}
-	    public function try_to_send_notification() {
-         $mail = new PHPMailer();
-
-         $mail-IsSMTP();
-         $mail->Host = "bluewaras3@gmail.com";
-         $mail->Port = 25;
-         $mail->SMTPAuth = false;
-         $mail->Username = "your_username";
-         $mail->Password = "your_password";
-
-         $mail->FromName = "Photo Gallery";
-         $mail->From = "bluewaras3@gmail.com";
-         $mail->AddAddress("bluewaras3@gmail.com", "Photo Gallery Admin");
-         $mail->Subject = "New Photo Gallery Comment";
-         $created = datetime_to_text($this->created);
-         $mail->Body =<<<EMAILBODY
-A new commetn has been received in the Photo Gallery.
-At {created}, {$this->author} wrote:
-{$this->body}
-
-EMAILBODY;
-
-         $result = $mail->Send();
-         return  $result;
-        }
+	
 		//common db methods
 		public static function find_all(){
 			return self::find_by_sql("SELECT * FROM ".self::$table_name);
